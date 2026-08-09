@@ -87,7 +87,36 @@ In the first step, we assign random values to these weights and biases. (We init
 You can find the code implementation for this step here:
 👉 **[Model Initialization](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/model_initialization)**
 
-Next, we use the matrix multiplication formulas discussed earlier to compute the network's output layer by layer. This process of passing data through the network is called the **forward pass** (or forward propagation).
+Next, we use matrix multiplication to compute the network's output layer by layer. This process of passing data forward through the network is called the **forward pass** (or forward propagation).
 
-You can find the code implementation for this step here:
+In our code, we break this down into two sub-steps for each layer:
+
+1. **$Z$ (Linear Step):** We multiply the weights by the inputs and add the bias.
+2. **$A$ (Activation Step):** We pass $Z$ through an activation function to introduce non-linearity. $A$ then becomes the input for the next layer.
+
+Here is the exact mathematical flow for our network, where $X$ represents our input data (the four Iris features):
+
+**1. Hidden Layer:**
+First, we calculate the linear combination ($Z_1$), and then we apply the **ReLU** activation function to get the hidden layer's output ($A_1$).
+
+$$
+Z_1 = W_1 X + b_1
+$$
+
+$$
+A_1 = \text{ReLU}(Z_1)
+$$
+
+**2. Output Layer:**
+Next, we use the activated output from the hidden layer ($A_1$) to calculate the linear combination for the output layer ($Z_2$). Finally, because we are classifying the Iris dataset into three distinct species, we apply the **Softmax** function to convert the raw scores into probabilities ($A_2$).
+
+$$
+Z_2 = W_2 A_1 + b_2
+$$
+
+$$
+A_2 = \text{softmax}(Z_2)
+$$
+
+You can find the exact code implementation for these matrix operations here:
 👉 **[Forward Pass](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/forward_propagation)**
