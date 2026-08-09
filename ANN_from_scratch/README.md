@@ -81,3 +81,13 @@ $$
 | `b1`   | 8 × 1 | Biases of the hidden layer (8 biases)                              |
 | `W2`   | 8 × 3 | Weights between the hidden layer and the output layer (24 weights) |
 | `b2`   | 3 × 1 | Biases of the output layer (3 biases)                              |
+
+In the first step, we assign random values to these weights and biases. (We initialize them randomly because if all neurons started with the exact same values, they would all learn the exact same features during training!)
+
+You can find the code implementation for this step here:
+👉 **[Model Initialization](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/model_initialization)**
+
+Next, we use the matrix multiplication formulas discussed earlier to compute the network's output layer by layer. This process of passing data through the network is called the **forward pass** (or forward propagation).
+
+You can find the code implementation for this step here:
+👉 **[Forward Pass](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/forward_propagation)**
