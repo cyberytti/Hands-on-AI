@@ -260,10 +260,45 @@ def gradient_descent(X, Y, alpha, iterations):
 ```
 
 ### What happens during one iteration?
-Suppose the network starts with some randomly initialized weights and biases. During the first iteration, the input data is passed through the network:
-$$ X \rightarrow Z_1 \rightarrow A_1 \rightarrow Z_2 \rightarrow A_2 $$
-The output $A_2$ contains the model's predictions. Backpropagation then calculates the gradients, and gradient descent updates the parameters. The next iteration uses these new parameter values to make another prediction. 
 
-With each update, gradient descent attempts to move the parameters toward values that produce a lower loss and, consequently, better predictions. In this project, the network is trained using **full-batch gradient descent**, meaning the entire training dataset is used to calculate the gradients in each iteration.
+Suppose the network starts with some randomly initialized weights and biases.
 
-👉 **[Complete Training Loop Code](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/main.py)**
+During the first iteration, the input data is passed through the network:
+
+$$
+X \rightarrow Z_1 \rightarrow A_1 \rightarrow Z_2 \rightarrow A_2
+$$
+
+The output $A_2$ contains the model's predictions.
+
+Backpropagation then calculates the gradients:
+
+$$
+\frac{\partial L}{\partial W_1},
+\quad
+\frac{\partial L}{\partial b_1},
+\quad
+\frac{\partial L}{\partial W_2},
+\quad
+\frac{\partial L}{\partial b_2}
+$$
+
+Finally, gradient descent updates the parameters:
+
+$$
+W_{\text{new}} = W_{\text{old}} - \alpha \frac{\partial L}{\partial W}
+$$
+
+$$
+b_{\text{new}} = b_{\text{old}} - \alpha \frac{\partial L}{\partial b}
+$$
+
+The next iteration uses these **new parameter values** to make another prediction.
+
+This process continues for the specified number of iterations. With each update, gradient descent attempts to move the parameters toward values that produce a lower loss and, consequently, better predictions.
+
+In this project, the network is trained using **full-batch gradient descent**, meaning the entire training dataset is used to calculate the gradients in each iteration.
+
+You can find the complete training implementation here:
+
+👉 **[Training Loop](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/main.py)**
