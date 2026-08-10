@@ -167,3 +167,34 @@ To gain a deeper understanding of how backpropagation works both conceptually an
 
 You can find the step-by-step mathematical implementation of this process here:
 👉 **[Backpropagation Implementation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/backward_propagation)**
+
+## Gradient Descent
+
+Gradient descent is an **optimization algorithm** used to iteratively find the optimal weight and bias values that minimize the loss function.
+
+While **backpropagation** calculates _how much_ a specific weight contributed to the error (the gradient), **gradient descent** uses that information to actually _update_ the weights. You can think of it as walking down a hill blindfolded: the gradient tells you the slope of the hill, and gradient descent dictates taking a step in the downward direction to reach the lowest point (the minimum loss).
+
+The mathematical formulas for updating the weights and biases are:
+
+$$
+W_{\text{new}} = W_{\text{old}} - \alpha \frac{\partial L}{\partial W}
+$$
+
+$$
+b_{\text{new}} = b_{\text{old}} - \alpha \frac{\partial L}{\partial b}
+$$
+
+**Where:**
+
+- $W$ and $b$ represent the current weights and biases.
+- $\alpha$ (alpha) is the **learning rate**, a small predefined number (e.g., 0.01) that controls the size of the "step" the network takes during the update.
+- $\frac{\partial L}{\partial W}$ and $\frac{\partial L}{\partial b}$ are the **gradients** (calculated during backpropagation), representing the slope of the loss function with respect to the weights and biases.
+
+Notice the **minus sign** ($-$) in the formulas. Because the gradient points in the direction of _increasing_ loss, we subtract it from the current weights to move in the exact opposite direction, thereby _decreasing_ the loss.
+
+To learn more about gradient descent, you can refer to this resource: [Gradient Descent (Google Developers)](https://developers.google.com/machine-learning/crash-course/linear-regression/gradient-descent).
+
+You can find the code implementation for this parameter update step here:
+👉 **[Gradient Descent Implementation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/gradient_descent)**
+
+TRAINING LOOP:
