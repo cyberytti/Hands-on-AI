@@ -151,3 +151,19 @@ The calculated loss is then used in the next critical phase of training: **backp
 
 You can find the code implementation for this process here:
 👉 **[Backpropagation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/backward_propagation)**
+
+## Backpropagation
+
+**Backpropagation** (short for "backward propagation of errors") is the fundamental algorithm used to train neural networks. It is defined as the process of calculating the gradient of the loss function with respect to every weight and bias in the network.
+
+After the forward pass generates a prediction and the loss function calculates the error, our goal is to minimize this error to improve the model's accuracy. To achieve this, we propagate the error backward—starting from the output layer and moving toward the input layer.
+
+Using the **chain rule of calculus**, we compute exactly how much each individual weight and bias contributed to the final mistake. These calculated values (called gradients) tell the network the precise direction and magnitude by which it needs to adjust its parameters to become more accurate on the next pass.
+
+To gain a deeper understanding of how backpropagation works both conceptually and mathematically, you can refer to the following resources:
+
+- [Backpropagation Explained (IBM)](https://www.ibm.com/think/topics/backpropagation)
+- [Backpropagation in Neural Networks (GeeksforGeeks)](https://www.geeksforgeeks.org/machine-learning/backpropagation-in-neural-network/)
+
+You can find the step-by-step mathematical implementation of this process here:
+👉 **[Backpropagation Implementation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/backward_propagation)**
