@@ -120,3 +120,21 @@ $$
 
 You can find the exact code implementation for these matrix operations here:
 👉 **[Forward Pass](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/forward_propagation)**
+
+## Activation Functions
+
+An activation function is a mathematical function used to introduce **non-linearity** into a neural network.
+
+Without an activation function, a single neuron's mathematical formula behaves exactly like a simple linear or logistic regression model. If we stacked multiple layers without adding non-linearity, the entire network would just collapse into one large linear equation. Therefore, activation functions are precisely what transform a basic linear model into a powerful deep learning model capable of understanding complex data patterns.
+
+To learn more about activation functions and explore their various types, you can refer to this article: [Activation Functions (GeeksforGeeks)](https://www.geeksforgeeks.org/machine-learning/activation-functions-neural-networks/)
+
+Typically, an activation function is applied at the end of every layer (starting from the hidden layer and ending at the output layer). The choice of which function to use depends on the specific task you are trying to solve.
+
+In this specific neural network, we use two different activation functions:
+
+1. **ReLU (Rectified Linear Unit):** Applied after the hidden layer. It is highly effective and standard for learning complex patterns in intermediate layers.
+2. **Softmax:** Applied to the output layer. Because the Iris dataset is a multi-class classification task (predicting one of three flower species), we use Softmax to convert the network's raw output scores into a probability distribution (where all probabilities add up to 1). This pairs perfectly with a cross-entropy loss function.
+
+You can find the exact code implementation of these activation functions here:
+👉 **[Activation Functions Implementation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/activation_function)**
