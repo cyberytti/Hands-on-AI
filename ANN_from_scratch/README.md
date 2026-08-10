@@ -138,3 +138,16 @@ In this specific neural network, we use two different activation functions:
 
 You can find the exact code implementation of these activation functions here:
 👉 **[Activation Functions Implementation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/activation_function)**
+
+## Loss Function
+
+After completing a forward pass, the network generates a predicted output. We then measure the difference (or error) between this prediction and the actual target values (the true iris species). This measure of error is known as the **loss**, and the specific mathematical formula used to calculate it is called the **loss function**.
+
+To learn more about loss functions and their role in machine learning, you can refer to this resource: [Loss Functions (IBM)](https://www.ibm.com/think/topics/loss-function).
+
+For this specific network, we use the **Cross-Entropy Loss** function. Because we are dealing with a multi-class classification problem (and we used the Softmax activation function in the output layer), Cross-Entropy is the ideal choice to penalize incorrect predictions.
+
+The calculated loss is then used in the next critical phase of training: **backpropagation**. During backpropagation, the network uses this loss value to determine exactly how much each weight contributed to the error, allowing it to adjust the weights and improve for the next pass.
+
+You can find the code implementation for this process here:
+👉 **[Backpropagation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/backward_propagation)**
