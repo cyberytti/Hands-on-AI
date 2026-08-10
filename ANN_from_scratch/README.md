@@ -303,4 +303,4 @@ In this project, the network is trained using **full-batch gradient descent**, m
 
 You can find the complete training implementation here:
 
-👉 **[Training Loop](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch)**
+👉 **[Training Loop](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/main.py)**
