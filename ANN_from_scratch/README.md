@@ -151,6 +151,8 @@ Typically, an activation function is applied at the end of every layer. In this 
 1. **ReLU (Rectified Linear Unit):** Applied after the hidden layer. It is highly effective and standard for learning complex patterns in intermediate layers.
 2. **Softmax:** Applied to the output layer. Because the Iris dataset is a multi-class classification task, we use Softmax to convert the network's raw output scores into a probability distribution (where all probabilities add up to 1).
 
+To learn more about activation functions and explore their various types, you can refer to this article: [Activation Functions (GeeksforGeeks)](https://www.geeksforgeeks.org/machine-learning/activation-functions-neural-networks/)
+
 👉 **[Activation Functions Code](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/activation_function)**
 
 ---
@@ -162,6 +164,8 @@ After completing a forward pass, the network generates a predicted output. We th
 For this specific network, we use the **Cross-Entropy Loss** function. Because we are dealing with a multi-class classification problem (and we used the Softmax activation function in the output layer), Cross-Entropy is the ideal choice to penalize incorrect predictions.
 
 The calculated loss is then used in the next critical phase of training: backpropagation. 
+
+To learn more about loss functions and their role in machine learning, you can refer to this resource: [Loss Functions (IBM)](https://www.ibm.com/think/topics/loss-function).
 
 👉 **[Loss Function Code](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/backward_propagation)**
 
