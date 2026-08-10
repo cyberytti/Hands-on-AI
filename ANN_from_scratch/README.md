@@ -210,6 +210,8 @@ $$
 
 Notice the **minus sign** ($-$) in the formulas. Because the gradient points in the direction of *increasing* loss, we subtract it from the current weights to move in the exact opposite direction, thereby *decreasing* the loss.
 
+To learn more about gradient descent, you can refer to this resource: [Gradient Descent (Google Developers)](https://developers.google.com/machine-learning/crash-course/linear-regression/gradient-descent).
+
 👉 **[Gradient Descent Code](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/gradient_descent)**
 
 ---
