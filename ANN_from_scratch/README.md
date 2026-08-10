@@ -197,4 +197,110 @@ To learn more about gradient descent, you can refer to this resource: [Gradient 
 You can find the code implementation for this parameter update step here:
 👉 **[Gradient Descent Implementation](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch/components/gradient_descent)**
 
-TRAINING LOOP:
+## Training Loop
+
+Now that we have implemented the forward pass, loss calculation, backpropagation, and gradient descent, we can combine them into a single **training loop**.
+
+The training loop is the process that repeatedly performs these steps:
+
+1. **Forward propagation** — generate predictions using the current weights and biases.
+2. **Backpropagation** — calculate the gradients of the loss with respect to the weights and biases.
+3. **Parameter update** — use gradient descent to update the weights and biases.
+4. **Repeat** — continue this process for a fixed number of iterations.
+
+In our implementation, this process is handled by the `gradient_descent()` function.
+
+The basic flow is:
+
+```text
+Initialize weights and biases
+            ↓
+     Forward propagation
+            ↓
+        Prediction
+            ↓
+     Backpropagation
+            ↓
+         Gradients
+            ↓
+     Update parameters
+            ↓
+          Repeat
+```
+
+The training loop can be implemented as follows:
+
+```python
+def gradient_descent(X, Y, alpha, iterations):
+    """Trains the neural network using full-batch gradient descent."""
+
+    # Initialize weights and biases
+    W1, b1, W2, b2 = initialize_parameters()
+
+    for i in range(1, iterations + 1):
+
+        # 1. Forward propagation
+        Z1, A1, Z2, A2 = forward_prop(
+            W1, b1, W2, b2, X
+        )
+
+        # 2. Backpropagation
+        dW1, db1, dW2, db2 = backward_prop(
+            Z1, A1, Z2, A2,
+            W1, W2,
+            X, Y
+        )
+
+        # 3. Update parameters using gradient descent
+        W1, b1, W2, b2 = update_params(
+            W1, b1, W2, b2,
+            dW1, db1, dW2, db2,
+            alpha
+        )
+
+    return W1, b1, W2, b2
+```
+
+### What happens during one iteration?
+
+Suppose the network starts with some randomly initialized weights and biases.
+
+During the first iteration, the input data is passed through the network:
+
+$$
+X \rightarrow Z_1 \rightarrow A_1 \rightarrow Z_2 \rightarrow A_2
+$$
+
+The output $A_2$ contains the model's predictions.
+
+Backpropagation then calculates the gradients:
+
+$$
+\frac{\partial L}{\partial W_1},
+\quad
+\frac{\partial L}{\partial b_1},
+\quad
+\frac{\partial L}{\partial W_2},
+\quad
+\frac{\partial L}{\partial b_2}
+$$
+
+Finally, gradient descent updates the parameters:
+
+$$
+W_{\text{new}} = W_{\text{old}} - \alpha \frac{\partial L}{\partial W}
+$$
+
+$$
+b_{\text{new}} = b_{\text{old}} - \alpha \frac{\partial L}{\partial b}
+$$
+
+The next iteration uses these **new parameter values** to make another prediction.
+
+This process continues for the specified number of iterations. With each update, gradient descent attempts to move the parameters toward values that produce a lower loss and, consequently, better predictions.
+
+In this project, the network is trained using **full-batch gradient descent**, meaning the entire training dataset is used to calculate the gradients in each iteration.
+
+You can find the complete training implementation here:
+
+👉 **[Training Loop](https://github.com/cyberytti/Hands-on-AI/tree/main/ANN_from_scratch)**
